@@ -1,5 +1,5 @@
-(function(React, module, undefined) {
-  
+(function(React, ReactDOM, module, undefined) {
+
   var KEYS = {
           BACKSPACE: 8,
           TAB: 9,
@@ -27,15 +27,39 @@
           this.props.onKeyDown(event.keyCode);
       },
 
+      onItemClicked: function(item) {
+          // event.stopPropagation();
+          this.props.removeSelectedItem(item); // ehm.
+      },
+
+      focus: function() {
+          ReactDOM.findDOMNode(this.refs.input).focus();
+      },
+
+      onEntryBoxClicked: function() {
+         this.focus();
+      },
+
       render: function() {
+          var that = this;
+          var items = this.props.items.map(function(item) {
+              return <li key={item.id}
+                         className="selectedItem">{item.displayText}<span onClick={that.onItemClicked.bind(null, item)}>[x]</span></li>;
+          });
           return (
-              <div>
-                 <input onChange={this.handleInputChange}
-                        onKeyDown={this.onKeyDown}
-                        value={this.props.text} />
-              </div>
+              <ul className="entryBox"
+                  onClick={this.onEntryBoxClicked}>
+                  {items}
+                  <li>
+                      <input onChange={this.handleInputChange}
+                             onKeyDown={this.onKeyDown}
+                             value={this.props.text}
+                             ref={'input'} />
+                  </li>
+
+              </ul>
           );
       }
   });
 
-}(React, module));
+}(React, ReactDOM, module));

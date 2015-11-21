@@ -1,14 +1,24 @@
 
 #content {
-  color: #6c94ce;
-}
-li {
-  cursor: pointer;
-}
-li.hover {
-  background: #ccc;
+  color: #333;
 }
 
-#content {
-  background: #ffeeee;
+ul.autoCompleteDropdown {
+  max-height: 200px;
+  width: 200px;
+  overflow-y: auto;
+  position: absolute;
+}
+ul.autoCompleteDropdown li {
+  cursor: pointer;
+}
+ul.autoCompleteDropdown li.hover {
+  background: #ccc;
+}
+.autoCompleteBox .entryBox li {
+  display: inline-block;
+  margin: 5px;
+}
+.autoCompleteBox .entryBox li span:nth-child(2) {
+  cursor: pointer;
 }
