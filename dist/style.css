@@ -1,0 +1,14 @@
+
+#content {
+  color: #6c94ce;
+}
+li {
+  cursor: pointer;
+}
+li.hover {
+  background: #ccc;
+}
+
+#content {
+  background: #ffeeee;
+}
