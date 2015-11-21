@@ -1,0 +1,10 @@
+{
+    "name": "boilerplate",
+    "dependencies": {
+        "react": "latest",
+        "semantic-ui": "latest",
+        "lodash": "latest",
+        "underscore.string": "latest",
+        "font-awesome": "latest"
+    }
+}
