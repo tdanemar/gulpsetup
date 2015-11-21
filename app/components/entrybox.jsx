@@ -43,21 +43,18 @@
       render: function() {
           var that = this;
           var items = this.props.items.map(function(item) {
-              return <li key={item.id}
-                         className="selectedItem">{item.displayText}<span onClick={that.onItemClicked.bind(null, item)}>[x]</span></li>;
+              return <a key={item.id}
+                         className="selectedItem ui label transition ">{item.displayText}<i className="delete icon" onClick={that.onItemClicked.bind(null, item)}></i></a>;
           });
           return (
-              <ul className="entryBox"
+              <div className="entryBox  ui fluid search dropdown selection multiple"
                   onClick={this.onEntryBoxClicked}>
                   {items}
-                  <li>
-                      <input onChange={this.handleInputChange}
+                  <input className="search" onChange={this.handleInputChange}
                              onKeyDown={this.onKeyDown}
                              value={this.props.text}
                              ref={'input'} />
-                  </li>
-
-              </ul>
+              </div>
           );
       }
   });

@@ -267,20 +267,17 @@
       render: function() {
           var that = this;
           var items = this.props.items.map(function(item) {
-              return React.createElement("li", {key: item.id, 
-                         className: "selectedItem"}, item.displayText, React.createElement("span", {onClick: that.onItemClicked.bind(null, item)}, "[x]"));
+              return React.createElement("a", {key: item.id, 
+                         className: "selectedItem ui label transition "}, item.displayText, React.createElement("i", {className: "delete icon", onClick: that.onItemClicked.bind(null, item)}));
           });
           return (
-              React.createElement("ul", {className: "entryBox", 
+              React.createElement("div", {className: "entryBox  ui fluid search dropdown selection multiple", 
                   onClick: this.onEntryBoxClicked}, 
                   items, 
-                  React.createElement("li", null, 
-                      React.createElement("input", {onChange: this.handleInputChange, 
+                  React.createElement("input", {className: "search", onChange: this.handleInputChange, 
                              onKeyDown: this.onKeyDown, 
                              value: this.props.text, 
                              ref: 'input'})
-                  )
-
               )
           );
       }

@@ -1,4 +1,12 @@
 
+.ui.fluid.dropdown.entryBox {
+  margin: 1em;
+  padding: 0.5em;
+  cursor:text;
+  width:80%;
+  min-height: 0;
+}
+
 ul.autoCompleteDropdown {
 
   max-height: 200px;
@@ -14,9 +22,17 @@ ul.autoCompleteDropdown {
   }
 }
 
-.autoCompleteBox {
+div.autoCompleteBox {
 
-  .entryBox {
+  ul.entryBox {
+      margin: 0;
+      padding-left:0;
+
+    input, input:focus {
+      border:none;
+      outline:none;
+    }
+
 
     li {
      display: inline-block;
